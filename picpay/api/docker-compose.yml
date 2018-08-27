@@ -1,22 +1,16 @@
 version: '3'
 services:
-  docker-mysql:
-    image: mysql:latest
-    restart: always
-    environment:
-    - MYSQL_ROOT_PASSWORD=P4$$w0rd
-    - MYSQL_DATABASE=picpay
-    - MYSQL_USER=picpay
-    - MYSQL_PASSWORD=picpay@123
-  web:
+  docker-app:
     image: picpayagnhesi/api:1.0-SNAPSHOT
     depends_on:
     - docker-mysql
     ports:
     - 8080:8080
+  docker-mysql:
+    image: mysql:latest
+    restart: always
     environment:
-    - DATABASE_HOST=docker-mysql
-    - DATABASE_USER=picpay
-    - DATABASE_PASSWORD=picpay@123
-    - DATABASE_NAME=picpay
-    - DATABASE_PORT=3306m
+      - MYSQL_DATABASE=picpay
+      - MYSQL_USER=picpay
+      - MYSQL_PASSWORD=picpay@123
+      - MYSQL_ROOT_PASSWORD=P4$$w0rd

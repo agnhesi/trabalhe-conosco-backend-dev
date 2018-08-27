@@ -4,11 +4,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PicPayController {
+public class UsersController {
 
-
-    @RequestMapping("/")
-    public String Hello() {
-        return ("PicPayController..");
+    @RequestMapping("/api/users")
+    public String users() {
+        return ("Testing...");
     }
+
 }
